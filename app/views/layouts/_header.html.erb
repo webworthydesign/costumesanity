@@ -1,12 +1,23 @@
 <header>
-  <p>This is where the header will go</p>
-  <ul>
-    <li>
-      <% if user_signed_in? %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
+  <%= link_to 'Costume Sanity', root_path, :class => 'brand' %>
+  <ul class="nav">
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %>
+      </li>
+    <% else %>
+      <li>
         <%= link_to 'Login', new_user_session_path %>
-      <% end %>
-    </li>
+      </li>
+    <% end %>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to 'Edit account', edit_user_registration_path %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to 'Sign up', new_user_registration_path %>
+      </li>
+    <% end %>
   </ul>
 </header>
