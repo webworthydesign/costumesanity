@@ -1,4 +1,7 @@
 Costumesanity::Application.routes.draw do
+  resources :courses
+
+
   devise_for :users
 
   # get "static_pages/home"
