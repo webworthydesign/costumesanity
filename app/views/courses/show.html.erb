@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%#= notice %></p>-->
 
 <p>
   <b>Name:</b>
@@ -7,12 +7,13 @@
 
 <p>
   <b>Start time:</b>
-  <%= @course.start_time %>
+  <%= @course.start_time.to_s(:ampm_time) %>
 </p>
 
 <p>
   <b>End time:</b>
-  <%= @course.end_time %>
+  <%#= @course.end_time.strftime('%I:%M %p') %>
+  <%= @course.end_time.to_s(:ampm_time) %>
 </p>
 
 <p>

@@ -4,7 +4,8 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    #@courses = Course.all
+    @courses = current_user.courses.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -26,7 +27,8 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
-    @course = Course.new
+    #@course = Course.new
+    @course = current_user.courses.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +38,15 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
-    @course = Course.find(params[:id])
+    #@course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
   end
 
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(params[:course])
+    #@course = Course.new(params[:course])
+    @course = current_user.courses.new(params[:course])
 
     respond_to do |format|
       if @course.save
@@ -58,7 +62,8 @@ class CoursesController < ApplicationController
   # PUT /courses/1
   # PUT /courses/1.json
   def update
-    @course = Course.find(params[:id])
+    #@course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
@@ -74,7 +79,8 @@ class CoursesController < ApplicationController
   # DELETE /courses/1
   # DELETE /courses/1.json
   def destroy
-    @course = Course.find(params[:id])
+    #@course = Course.find(params[:id])
+    @course = current_user.courses.find(params[:id])
     @course.destroy
 
     respond_to do |format|
